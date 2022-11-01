@@ -1,6 +1,9 @@
 package logger
 
-import "go.uber.org/zap"
+import (
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
+)
 
 var (
 	log *zap.Logger
@@ -8,7 +11,17 @@ var (
 
 func init() {
 	var err error
-	log, err = zap.NewProduction(zap.AddCallerSkip(1))
+	config := zap.NewProductionConfig()
+
+	encoderconfig := zap.NewProductionEncoderConfig()
+	encoderconfig.TimeKey = "Timestamp"
+	encoderconfig.EncodeTime = zapcore.RFC3339TimeEncoder
+	encoderconfig.StacktraceKey = "" //not printing stacktrace
+
+	config.EncoderConfig = encoderconfig
+	log, err = config.Build(zap.AddCallerSkip(1))
+
+	// log, err = zap.NewProduction(zap.AddCallerSkip(1))
 	if err != nil {
 		panic("failed to initialize zap logger..." + err.Error())
 	}
