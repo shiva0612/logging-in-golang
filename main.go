@@ -12,7 +12,7 @@ func main() {
 	router := gin.Default()
 
 	router.GET("/", ping)
-	logger.Log.Info("application started")
+	logger.Info("application started")
 	router.Run(":8080")
 
 }

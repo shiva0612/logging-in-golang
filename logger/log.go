@@ -3,13 +3,17 @@ package logger
 import "go.uber.org/zap"
 
 var (
-	Log *zap.Logger
+	log *zap.Logger
 )
 
 func init() {
 	var err error
-	Log, err = zap.NewProduction()
+	log, err = zap.NewProduction(zap.AddCallerSkip(1))
 	if err != nil {
 		panic("failed to initialize zap logger..." + err.Error())
 	}
+}
+
+func Info(msg string, fields ...zap.Field) {
+	log.Info(msg, fields...)
 }
