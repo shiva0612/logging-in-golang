@@ -1,0 +1,10 @@
+{
+    "encoding":"console",
+    "outputPaths":["app.log","backapp.log","stdout"],
+    "encoderConfig":{
+        "messageKey": "msg",
+        "levelKey":"level",
+        "timeKey":"time",
+        "StacktraceKey":"stack-trace"
+    }
+}

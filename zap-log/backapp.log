@@ -1,0 +1,7 @@
+2022-12-18T00:01:46+05:30	info	zap-log/main.go:29	suhar log
+2022-12-18T00:01:46+05:30	warn	zap-log/main.go:30	sugar warning
+2022-12-18T00:01:46+05:30	panic	zap-log/main.go:31	sugra panic
+main.main
+	/Users/kamarapushivachandra/Desktop/zap-logger/zap-log/main.go:31
+runtime.main
+	/Users/kamarapushivachandra/Downloads/softwares/goroot_1.19/src/runtime/proc.go:250
